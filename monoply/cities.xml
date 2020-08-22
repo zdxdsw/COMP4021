@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<cities>
+
+    <city>
+        <order>1</order>
+        <title>30</title>
+        <description>学期满绩！顺带吃个满记甜品~</description>
+        <attraction>La Tour Eiffel</attraction>   
+    </city>
+
+    <city>
+        <order>2</order>
+        <title>20</title>
+        <description>终于入手喜欢的包包</description>
+        <attractions>Gateway of India</attractions>   
+    </city>
+    <city>
+        <order>3</order>
+        <title>50</title>
+        <description>获得百毒不侵体质</description>
+        <attractions>The Tower Bridge</attractions>   
+    </city>
+    <city>
+        <order>4</order>
+        <title>-20</title>
+        <description>把巧克力酱弄了一身</description>
+        <attractions>Barri Gòtic</attractions>   
+    </city>
+    <city>
+        <order>5</order>
+        <title>50</title>
+        <description>Paper中了核心期刊</description>
+        <attractions>Sugarloaf</attractions>   
+    </city>
+    <city>
+        <order>6</order>
+        <title>-30</title>
+        <description>做梦梦到被王老师骂哭</description>
+        <attractions>Gran Via</attractions>   
+    </city>
+    <city>
+        <order>7</order>
+        <title>30</title>
+        <description>拔草一家美妙的串串</description>
+        <attractions>Times Square</attractions>   
+    </city>
+    <city>
+        <order>8</order>
+        <title>10</title>
+        <description>即将进入旧时光宇宙：</description>
+        <attractions>Red Square</attractions>   
+    </city>
+    <city>
+        <order>9</order>
+        <title>40</title>
+        <description>去游乐园坐旋转木马</description>
+        <attractions>Castle de S. Jorge</attractions>   
+    </city>
+    <city>
+        <order>10</order>
+        <title>40</title>
+        <description>这次姨妈没有姨妈痛！</description>
+        <attractions>Grand Palace</attractions>   
+    </city>
+    <city>
+        <order>11</order>
+        <title>40</title>
+        <description>逛街见到心动帅哥</description>
+        <attractions>Cloud Gate</attractions>   
+    </city>
+    <city>
+        <order>12</order>
+        <title>600</title>
+        <description>Bang! 你被祝福砸中啦！！！即将进入祝福宇宙：</description>
+        <attractions>The Ruins of St. Paul's</attractions>   
+    </city>
+    <city>
+        <order>13</order>
+        <title>50</title>
+        <description>收到神校offer啦！ </description>
+        <attractions>Marienplatz</attractions>   
+    </city>
+    <city>
+        <order>14</order>
+        <title>-40</title>
+        <description>下雨天忘记带伞，还弄湿了鞋</description>
+        <attractions>Palazzo Ducale</attractions>   
+    </city>
+    <city>
+        <order>15</order>
+        <title>20</title>
+        <description>下班目睹天边日落神话</description>
+        <attractions>CN Tower</attractions>   
+    </city>
+    <city>
+        <order>16</order>
+        <title>-30</title>
+        <description>连续两趟地铁没挤进去</description>
+        <attractions>Parliament Hill</attractions>   
+    </city>
+    <city>
+        <order>17</order>
+        <title>20</title>
+        <description>小组作业遇神队友带飞！</description>
+        <attractions>Golden Gate Bridge</attractions>   
+    </city>
+    <city>
+        <order>18</order>
+        <title>10</title>
+        <description>即将进入旧时光宇宙：</description>
+        <attractions> Lucca's Walls</attractions>   
+    </city>
+
+    <city>
+        <order>20</order>
+        <title>-30</title>
+        <description>新概念被抽查刚巧不会</description>
+        <attractions>Fremont Street</attractions>   
+    </city>
+    <city>
+        <order>21</order>
+        <title>30</title>
+        <description>作文被当范文念啦！</description>
+        <attractions>Sydney Opera House</attractions>   
+    </city>
+    <city>
+        <order>22</order>
+        <title>30</title>
+        <description>中午吃蝴蝶翅！</description>
+        <attractions>The Forbidden City</attractions>   
+    </city>
+    <city>
+        <order>23</order>
+        <title>20</title>
+        <description>见到笑笑了</description>
+        <attractions>University of Glasgow</attractions>   
+    </city>
+    <city>
+        <order>24</order>
+        <title>-40</title>
+        <description>私闯男厕竟被发现！</description>
+        <attractions>Manila Cathedral</attractions>   
+    </city>
+    <city>
+        <order>25</order>
+        <title>40</title>
+        <description>下午最后两节英语课看电影</description>
+        <attractions>Pura Tanah Lot</attractions>   
+    </city>
+    <city>
+        <order>26</order>
+        <title>10</title>
+        <description>即将进入现在进行时宇宙：</description>
+        <attractions>Lake Zurich</attractions>   
+    </city>
+    <city>
+        <order>27</order>
+        <title>30</title>
+        <description>成功把小咖啡偷带到玉渊潭</description>
+        <attractions>The Acropolis</attractions>   
+    </city>
+    <city>
+        <order>28</order>
+        <title>50</title>
+        <description>这次出去玩王老师不去！</description>
+        <attractions>Aya Sofya</attractions>   
+    </city>
+    <city>
+        <order>29</order>
+        <title>-40</title>
+        <description>明天考口试，背不完了</description>
+        <attractions>Burj Khalifa</attractions>   
+    </city>
+    <city>
+        <order>30</order>
+        <title>-30</title>
+        <description>数学卷子丢了</description>
+        <attractions> The Brandenburg Gate</attractions>   
+    </city>
+    <city>
+        <order>31</order>
+        <title>20</title>
+        <description>体育课自由打球！</description>
+        <attractions>Hanauma Bay</attractions>   
+    </city>
+    <city>
+        <order>32</order>
+        <title>600</title>
+        <description>Bang! 你被祝福砸中啦！！！即将进入祝福宇宙：</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+    <city>
+        <order>33</order>
+        <title>-20</title>
+        <description>不小心谋杀了小龙虾</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+    <city>
+        <order>34</order>
+        <title>10</title>
+        <description>即将进入现在进行时宇宙：</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+    <city>
+        <order>35</order>
+        <title>30</title>
+        <description>小卖店又开始卖热可可了</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+    <city>
+        <order>36</order>
+        <title>20</title>
+        <description>天台又开满了花呀！</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+    <city>
+        <order>37</order>
+        <title>30</title>
+        <description>运动会拿了三块金牌~</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+
+</cities>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <title>COMP4021 Chat Room</title>
+
+<style>
+td {
+  border: 1px solid black;
+  padding:6px;
+}
+</style>
+
+</head>
+
+<script>
+// Set this to true if you do want lots of explanation message in the console
+// Set this to false if you don't want lots of explanation message in the console
+var helpMeUnderstand=false; 
+
+$( document ).ready(function() {
+
+    processXML(); // As soon as the web page is ready, load the chatroom text
+
+
+// Later, when the user clicks on the button, this code will be executed
+$("#submitButton").click(function() {
+
+    if (helpMeUnderstand) console.log("The button has been clicked"); 
+
+    // Change this URL to your own server PHP file
+    var destinationURL = "http://localhost/addChatroomMessage.php"; 
+
+    if  ( $("#chatroomname").val().length>0 && $("#chatroommessage").val().length>0 ) // Make sure there is a name and a message
+    $.ajax({
+           type: "GET",
+           url: destinationURL,
+           data: $("#theForm").serialize(), 
+           dataType: "text",
+           success: function(data) {
+               if (helpMeUnderstand) console.log("The chat room message has been submitted");
+           },
+           error: function() { 
+               if (helpMeUnderstand) console.log("FAILED to submit the chat room message!");
+           }
+         });
+
+    return false; // Make sure the browser doesn't do anything else as a consequence of clicking the button
+});
+
+
+function processXML() {
+    if (helpMeUnderstand) { console.log("Starting processXML()"); }
+
+    // Change this URL to your own server PHP file
+    $.ajax({
+        //console.log(url);
+        url: "http://localhost/outputChatroomMessages.php",
+        type: "GET",
+        dataType: "text",
+        success: function (result) { // put the data you grabbed from url: "http://localhost/outputChatroomMessages.php" into result variable
+
+		if (helpMeUnderstand) console.log("Received from server:\n" + result);
+
+		allChatRoomHTML="";
+		var parts=result.split("\n");
+		parts.forEach( function(oneLine){ // for each line in parts
+
+			if (oneLine.length>1) {
+				// One single message looks like this:
+                                // chatroomname=Dave&chatroommessage=how%20are%20you%3F
+				twoParts=oneLine.split("&"); // Separate into two pieces, using the ampersand
+
+				namePair=twoParts[0]; // Using the above example, this is  chatroomname=Dave
+				messagePair=twoParts[1]; // Using the above example, this is  chatroommessage=how%20are%20you%3F
+
+				if (helpMeUnderstand) console.log("namePair is "+namePair);
+				if (helpMeUnderstand) console.log("messagePair is "+messagePair);
+
+				// Extract this name (one name)
+				thisName=namePair.split("=")[1];
+				if (helpMeUnderstand) console.log("thisName is "+thisName);
+				thisName=decodeURIComponent(thisName); // convert the %codes to the corresponding character
+				if (helpMeUnderstand) console.log("after decoding thisName is "+thisName);
+
+				// Extract this message (one message)
+				thisMessage=messagePair.split("=")[1];
+				if (helpMeUnderstand) console.log("thisMessage is "+thisMessage);
+				thisMessage=decodeURIComponent(thisMessage);
+				if (helpMeUnderstand) console.log("after decoding thisMessage is "+thisMessage);
+
+				// Now we add the text for one single message at the top of the table (not the bottom)
+				allChatRoomHTML="<tr><td>" + thisName + "</td><td>" + thisMessage + "</td></tr>\n" + allChatRoomHTML;
+			}
+
+		}  );	
+
+		$("#chatroom_content").html(allChatRoomHTML);
+           }
+       });
+
+    setTimeout(processXML, 1000); // Do it all over again a second later
+}
+
+
+});
+
+</script>
+
+<body>
+    <h2>COMP4021 Chat Room</h2>
+
+<!-- Notice that there is no 'method' in the following form.
+     That's because we use jQuery to handle the sending, not the usual browser process.
+     Also, notice there is no 'submit' button.
+     We use our own button instead to trigger the sending process.
+ -->
+
+    <form id="theForm">
+        <p>Your chat room name: <input type="text" name="chatroomname" id="chatroomname"></p>
+        <p>Message: <input type="text" name="chatroommessage" id="chatroommessage"></p>
+        <p><input type="button" id="submitButton" value="Press here to send"></p>
+    </form>
+
+<!-- All the chatroom content is shown in the following table -->
+
+    <table id="chatroom_content"></table>
+
+</body>
+</html>

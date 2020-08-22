@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<cities>
+
+    <city>
+        <order>1</order>
+        <title>Paris</title>
+        <description>You stumble, you soar. And if you’re lucky, you make it to Paris for a while.</description>
+        <attraction>La Tour Eiffel</attraction>   
+    </city>
+
+    <city>
+        <order>2</order>
+        <title>Mumbai</title>
+        <description>You can take the boy out of Bombay; you can't take Bombay out of the boy, you know.</description>
+        <attractions>Gateway of India</attractions>   
+    </city>
+    <city>
+        <order>3</order>
+        <title>London</title>
+        <description>By seeing London, I have seen as much of life as the world can show.</description>
+        <attractions>The Tower Bridge</attractions>   
+    </city>
+    <city>
+        <order>4</order>
+        <title>Barcelona</title>
+        <description>Such a beautiful horizon, like a jewel in the sun , for you a will be a seagle of your beautiful ocean.</description>
+        <attractions>Barri Gòtic</attractions>   
+    </city>
+    <city>
+        <order>5</order>
+        <title>Rio de Janeiro</title>
+        <description>When things get stale, You get on a boat and sail to Rio</description>
+        <attractions>Sugarloaf</attractions>   
+    </city>
+    <city>
+        <order>6</order>
+        <title>Madrid</title>
+        <description>God worked six days, and rested on the seventh: Madrileños rest the six, and on the seventh...go on the bullfight.</description>
+        <attractions>Gran Via</attractions>   
+    </city>
+    <city>
+        <order>7</order>
+        <title>New York City</title>
+        <description>One can't paint New York as it is, but rather as it is felt.</description>
+        <attractions>Times Square</attractions>   
+    </city>
+    <city>
+        <order>8</order>
+        <title>Moscow</title>
+        <description>The supreme moments of travel are born of beauty and strangeness in equal parts: the first panders to the senses, the second to the mind.</description>
+        <attractions>Red Square</attractions>   
+    </city>
+    <city>
+        <order>9</order>
+        <title>Lisbon</title>
+        <description>By day Lisbon has a naive theatrical quality that enchants and captivates, but by night it is a fairy-tale city, descending over lighted terraces to the sea.</description>
+        <attractions>Castle de S. Jorge</attractions>   
+    </city>
+    <city>
+        <order>10</order>
+        <title>Bangkok</title>
+        <description>Perfect is boring and dreams are not real. So you think "I wish I could travel." Great. Sell your crappy car, buy a ticket to Bangkok, and go. Right now.</description>
+        <attractions>Grand Palace</attractions>   
+    </city>
+    <city>
+        <order>11</order>
+        <title>Chicago</title>
+        <description>It's a 106 miles to Chicago, we've got a full tank of gas, half a pack of cigarettes; it's dark and we're wearing sunglasses. Hit it!</description>
+        <attractions>Cloud Gate</attractions>   
+    </city>
+    <city>
+        <order>12</order>
+        <title>Macau</title>
+        <description>I'll always think of Macau as a city full of vibrancy, lights and a rich history that seems to never leave the city.</description>
+        <attractions>The Ruins of St. Paul's</attractions>   
+    </city>
+    <city>
+        <order>13</order>
+        <title>Munich</title>
+        <description>I do not remember much, ever such a beautiful combination of mountains, having seen lakes and a city like Munich. </description>
+        <attractions>Marienplatz</attractions>   
+    </city>
+    <city>
+        <order>14</order>
+        <title>Venice</title>
+        <description>A realist, in Venice, would become a romantic by mere faithfulness to what he saw before him.</description>
+        <attractions>Palazzo Ducale</attractions>   
+    </city>
+    <city>
+        <order>15</order>
+        <title>Toronto</title>
+        <description>The city had been built by people from innumerable elsewheres. It was a chaos of cultures ordered only by its long streets, belonging to whoever walked its streets.</description>
+        <attractions>CN Tower</attractions>   
+    </city>
+    <city>
+        <order>16</order>
+        <title>Ottawa</title>
+        <description>There's more coming tomorrow than there was today.</description>
+        <attractions>Parliament Hill</attractions>   
+    </city>
+    <city>
+        <order>17</order>
+        <title>San Francisco</title>
+        <description>If you’re not alive, San Francisco will bring you to life.</description>
+        <attractions>Golden Gate Bridge</attractions>   
+    </city>
+    <city>
+        <order>18</order>
+        <title>Tuscany</title>
+        <description>The olive trees dotting the hills are covered with new buds, while the grass is tall and soft, every patch threaded with wildflowers.</description>
+        <attractions> Lucca's Walls</attractions>   
+    </city>
+    <city>
+        <order>19</order>
+        <title>Rome</title>
+        <description>From the dome of St. Peter’s one can see a panorama that is varied, extensive, and more illustrious in history than any other in Europe.</description>
+        <attractions>The Colosseum</attractions>   
+    </city>
+    <city>
+        <order>20</order>
+        <title>Las Vegas</title>
+        <description>Las Vegas looks the way you'd imagine heaven must look at night.</description>
+        <attractions>Fremont Street</attractions>   
+    </city>
+    <city>
+        <order>21</order>
+        <title>Sydney</title>
+        <description>A day at the beach restores the soul.</description>
+        <attractions>Sydney Opera House</attractions>   
+    </city>
+    <city>
+        <order>22</order>
+        <title>Beijing</title>
+        <description>To travel is to discover that everyone is wrong about other countries.</description>
+        <attractions>The Forbidden City</attractions>   
+    </city>
+    <city>
+        <order>23</order>
+        <title>Glasgow</title>
+        <description>The day the power of love overrules the love of power, the world will know peace.</description>
+        <attractions>University of Glasgow</attractions>   
+    </city>
+    <city>
+        <order>24</order>
+        <title>Manila</title>
+        <description>Keep your face towards the sunshine and the shadows will fall behind you.</description>
+        <attractions>Manila Cathedral</attractions>   
+    </city>
+    <city>
+        <order>25</order>
+        <title>Bali</title>
+        <description>Palm trees, ocean breeze; salty air, sunkissed hair.</description>
+        <attractions>Pura Tanah Lot</attractions>   
+    </city>
+    <city>
+        <order>26</order>
+        <title>Zurich</title>
+        <description>Love makes the world go around and chocolate makes the trip worthwhile.</description>
+        <attractions>Lake Zurich</attractions>   
+    </city>
+    <city>
+        <order>27</order>
+        <title>Athens</title>
+        <description>Athens, the eye of Greece, mother or arts, and eloquence, native to famous wits.</description>
+        <attractions>The Acropolis</attractions>   
+    </city>
+    <city>
+        <order>28</order>
+        <title>Istanbul</title>
+        <description>The constant beatings of the wave of the east against the rock of the west.</description>
+        <attractions>Aya Sofya</attractions>   
+    </city>
+    <city>
+        <order>29</order>
+        <title>Dubai</title>
+        <description>Where the sky is not the limit ...</description>
+        <attractions>Burj Khalifa</attractions>   
+    </city>
+    <city>
+        <order>30</order>
+        <title>Berlin</title>
+        <description>To Berlin or not to Berlin. Is that a question?</description>
+        <attractions> The Brandenburg Gate</attractions>   
+    </city>
+    <city>
+        <order>31</order>
+        <title>Hawaii</title>
+        <description>May there always be warmth in your hale, fish in your net and Aloha in your heart.</description>
+        <attractions>Hanauma Bay</attractions>   
+    </city>
+    <city>
+        <order>32</order>
+        <title>Cairo</title>
+        <description>Traveling in Cairo – it leaves you speechless, then turns you into a storyteller.</description>
+        <attractions>Pyramids of Giza</attractions>   
+    </city>
+</cities>

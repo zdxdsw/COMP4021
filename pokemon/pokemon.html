@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> - Lab 5: Pokémon Database - </title>
+    <meta charset="utf-8">
+    <meta name="viewport" 
+          content="width=device-width">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // This is the hashchange event function
+        $(window).on('hashchange', function() {
+            // Get the fragment identifier from the URL
+            var page = window.location.hash;
+            if (page == "") page = "#list";
+
+            // You need to change this so that the corresponding page is shown
+            $(".page").hide();
+            switch(page){
+                case "#list":
+                    $("#listPage").show();
+                    break;
+                case "#add":
+                    $("#addPage").show();
+                    break;
+            }
+        });
+
+        // You may want to trigger the hashchange event when the page loads
+        $(window).trigger('hashchange');
+        // Add your listForm event here
+        $("#listForm").on("change", function() {
+            // Write your AJAX code here
+            var html = '<div class="row">';
+            var query = $("#listForm").serialize();
+            
+            $.get("http://localhost/pokemon/list.php", query, function(data) {
+                // function that handles the returned query data
+                // find() is similar to getElementsByTagName
+                $(data).find("pokemon").each(function(i, pokemon) {
+                    html += "<div class='pokemon col-4 col-md-3 col-lg-2'>";
+                    //console.log($(pokemon).find("name").text()); // use text() to obtain the text content of a node
+                    //console.log($(pokemon).find("image").text()); // use text() to obtain the text content of a node
+                    //console.log($(pokemon).find("type").text()); // use text() to obtain the text content of a node
+                    html += '<div class="image"><img src="'+$(pokemon).find("image").text()+ '" class="w-75" alt="Image"></div>';
+                    html += '<div class="name">'+$(pokemon).find("name").text()+'</div>';
+                    html += '<div class="types">';
+                    $(pokemon).find("type").each(function(j, type) {
+                        if (j>=1){
+                            html += ', ';
+                        }
+                        html += '<span class="type">'+$(type).text()+'</span>';
+                    });
+                    html += "</div>";
+                    html += "</div>";
+                })
+                html += "</div>";
+                
+                $("#listContent").html(html);
+            })
+            .fail(function() {
+                alert("Failed.");
+            })
+            
+            return false;
+        });
+        // You may want to trigger the change event when the page loads
+        $("#listForm select").trigger("change");
+        // Add your addForm event here
+        $("#addForm").on("submit", function() { // the triggering event is "submit"
+            // Write your AJAX code here
+            var query = $("#addForm").serialize();
+            $.get('http://localhost/pokemon/add.php', query, function(data){
+                var error = $(data).find("error");
+                if (error.length > 0){
+                    alert($(error).text());
+                } else {
+                    window.location.hash = "#list";
+                    $("#listForm select").trigger("change");
+                }
+            });
+
+            return false;
+        });
+    });
+    </script>
+    <style>
+    /* Set up your own styles for the navbar and the pokemon list */
+    .navbar {
+        margin:1em;
+        border:2px darkgray solid;
+        border-radius: 1em;
+    }
+    .navbar-brand img {
+        height:80px;
+        margin-right:40px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Put your navbar here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="pokemon-logo.svg"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#list">List Pokemon <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#add">Add Pokemon</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <!-- This is the listing page -->
+    <div id="listPage" class="container page pb-3" style="display: none">
+      <h2> - Pokémon List - </h2>
+
+      <!-- Add the form for listing the Pokémon -->
+      <form id="listForm">
+        <div class="form-row">
+            <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
+                <label>Generation</label>
+                <select class="form-control" name="generation">
+                    <option value="">- All -</option>
+                    <option value="1">Generation 1</option>
+                    <option value="2">Generation 2</option>
+                    <option value="3">Generation 3</option>
+                    <option value="4">Generation 4</option>
+                    <option value="5">Generation 5</option>
+                    <option value="6">Generation 6</option>
+                    <option value="7">Generation 7</option>
+                </select>          
+            </div>
+            <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                <label>Type</label>
+                <select class="form-control" name="type">
+                    <option value="">- All -</option>
+                    <option>Normal</option>
+                    <option>Fire</option>
+                    <option>Water</option>
+                    <option>Electric</option>
+                    <option>Grass</option>
+                    <option>Ice</option>
+                    <option>Fighting</option>
+                    <option>Poison</option>
+                    <option>Ground</option>
+                    <option>Flying</option>
+                    <option>Psychic</option>
+                    <option>Bug</option>
+                    <option>Rock</option>
+                    <option>Ghost</option>
+                    <option>Dragon</option>
+                    <option>Dark</option>
+                    <option>Steel</option>
+                    <option>Fairy</option>
+                </select>          
+            </div>
+        </div>
+      </form>
+      <!-- This is the div for showing the Pokémon list -->
+      <div id="listContent"></div>
+    </div>
+
+    <!-- This is the adding page -->
+    <div id="addPage" class="container page pb-3" style="display: none">
+      <h2> - Adding a New Pokémon - </h2>
+
+      <!-- Add the form for a new Pokémon here -->
+      <form id="addForm">
+        <div class="form-group">
+            <label>National number</label>
+            <input type="number" min="1" name="nationalNumber" required class="form-control" placeholder="Enter national number">
+        </div>
+          
+        <div class="form-group">
+            <label>Pokémon name</label>
+            <input type="text" name="pokemonName" required class="form-control" placeholder="Enter Pokémon name">
+        </div>
+        <div class="form-group">
+            <label>Image address</label>
+            <input type="url" name="imageAddress" required class="form-control" placeholder="Enter image address">
+        </div>
+        <div class="form-group">
+            <label>Pokémon Type(s)</label>
+            <select name="pokemonType[]" required multiple class="form-control">
+                <option >Normal</option>
+                <option>Fire</option>
+                <option>Water</option>
+                <option>Electric</option>
+                <option>Grass</option>
+                <option>Ice</option>
+                <option>Fighting</option>
+                <option>Poison</option>
+                <option>Ground</option>
+                <option>Flying</option>
+                <option>Psychic</option>
+                <option>Bug</option>
+                <option>Rock</option>
+                <option>Ghost</option>
+                <option>Dragon</option>
+                <option>Dark</option>
+                <option>Steel</option>
+                <option>Fairy</option>
+            </select>          
+        </div>
+        <div class="form-group">
+            <label>Generation</label>
+            <select name="generation" required class="form-control">
+                <option value="1">Generation 1</option>
+                <option value="2">Generation 2</option>
+                <option value="3">Generation 3</option>
+                <option value="4">Generation 4</option>
+                <option value="5">Generation 5</option>
+                <option value="6">Generation 6</option>
+                <option value="7">Generation 7</option>
+            </select>          
+        </div>
+        <button type="submit" class="btn btn-primary">Add the Pokemon</button>
+      </form>
+    </div>
+</body>
+</html>

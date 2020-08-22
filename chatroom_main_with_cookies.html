@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)https://course.cse.ust.hk/comp4021/hkust/2020s_notes/70_chatroom_demo_with_cookies/examples/chatroom_main.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <script src="./chatroom_main_with_cookies_files/jquery-3.4.1.min.js.&#19979;&#36733;"></script>
+ <title>COMP4021 Chat Room</title>
+
+<style>
+td {
+  border: 1px solid black;
+  padding:6px;
+}
+</style>
+
+<script>
+// Set this to true if you do want lots of explanation messages in the console
+// Set this to false if you don't want lots of explanation messages in the console
+var helpMeUnderstand=false; 
+
+// Set this to true if you do want lots of explanation messages about cookie handling in the console
+// Set this to false if you don't want lots of explanation messages about cookie handling in the console
+var helpMeUnderstandCookiePart=true; // For the new cookie part
+
+$( document ).ready(function() {
+
+    // NEWLY ADDED CODE TO HANDLE COOKIE
+    var valueOfChatRoomNameCookie="";           // Indicate we haven't found it yet
+    var cookiePairs=document.cookie.split(";"); // Separate the cookie text into the individual cookies
+
+    if (helpMeUnderstandCookiePart) console.log("The entire cookie string is: " + document.cookie);
+    if (helpMeUnderstandCookiePart) console.log("After doing a split(';') the result is an array with this content: " + cookiePairs);
+
+    for (i=0; i<cookiePairs.length; i++) {      // Now go through each cookie text in the array
+        if (helpMeUnderstandCookiePart) console.log("In loop - this item in the array is: " + cookiePairs[i]);
+
+        if (helpMeUnderstandCookiePart) console.log("In loop - now we use split('=') to get the left and right sides");
+        leftSide=cookiePairs[i].split("=")[0];
+        rightSide=cookiePairs[i].split("=")[1];
+
+        if (helpMeUnderstandCookiePart) console.log("In loop - leftSide is: " + leftSide);
+        if (helpMeUnderstandCookiePart) console.log("In loop - rightSide is: " + rightSide);
+
+        if (leftSide=="chatroomname") {   // If we find the cookie we are looking for
+
+            if (helpMeUnderstandCookiePart) console.log("In loop - I found the chatroomname cookie!");
+            if (helpMeUnderstandCookiePart) console.log("In loop - the chatroomname cookie has this value: " + rightSide);
+
+            valueOfChatRoomNameCookie=rightSide;   // Let's remember the value of the cookie for later
+            break;                                 // We don't need to continue with the loop
+        }
+
+    }
+    if (valueOfChatRoomNameCookie.length>0)             // If we found what we are looking for
+        $("#chatroomname").val( valueOfChatRoomNameCookie );    // then put it in the form field
+    // END OF NEWLY ADDED CODE TO HANDLE COOKIE
+
+    processXML(); // As soon as the web page is ready, load the chatroom text
+
+// Later, when the user clicks on the button, this code will be executed
+$("#submitButton").click(function() {
+
+    // NEWLY ADDED CODE TO HANDLE COOKIE
+    // Here we create the cookie, taking the name from the form field
+    document.cookie="chatroomname=" + $("#chatroomname").val()
+         + "; expires=Sat, 01 Jan 2022 00:00:00 UTC"; // This time/date is in the future
+    // END OF NEWLY ADDED CODE TO HANDLE COOKIE
+
+    if (helpMeUnderstand) console.log("The button has been clicked"); 
+
+    // Change this URL to your own server PHP file
+    var destinationURL = "https://cgi.cse.ust.hk/~rossiter/cgi-bin/4021_chatroom_demo/addChatroomMessage.php"; 
+
+    if  ( $("#chatroomname").val().length>0 && $("#chatroommessage").val().length>0 ) // Make sure there is a name and a message
+    $.ajax({
+           type: "GET",
+           url: destinationURL,
+           data: $("#theForm").serialize(), 
+           dataType: "text",
+           success: function(data) {
+               if (helpMeUnderstand) console.log("The chat room message has been submitted");
+           },
+           error: function() { 
+               if (helpMeUnderstand) console.log("FAILED to submit the chat room message!");
+           }
+         });
+
+    return false; // Make sure the browser doesn't do anything else as a consequence of clicking the button
+});
+
+
+function processXML() {
+    if (helpMeUnderstand) { console.log("Starting processXML()"); }
+
+    // Chnage this URL to your own server PHP file
+    $.ajax({
+       url: 'https://cgi.cse.ust.hk/~rossiter/cgi-bin/4021_chatroom_demo/outputChatroomMessages.php',
+       type: "GET",
+       dataType: "text",
+       success: function (result) {
+
+		if (helpMeUnderstand) console.log("Received from server:\n" + result);
+
+		allChatRoomHTML="";
+		var parts=result.split("\n");
+		parts.forEach( function(oneLine){ 
+
+			if (oneLine.length>1) {
+				// One single message looks like this:
+                                // chatroomname=Dave&chatroommessage=how%20are%20you%3F
+				twoParts=oneLine.split("&"); // Separate into two pieces, using the ampersand
+
+				namePair=twoParts[0]; // Using the above example, this is  chatroomname=Dave
+				messagePair=twoParts[1]; // Using the above example, this is  chatroommessage=how%20are%20you%3F
+
+				if (helpMeUnderstand) console.log("namePair is "+namePair);
+				if (helpMeUnderstand) console.log("messagePair is "+messagePair);
+
+				// Extract this name (one name)
+				thisName=namePair.split("=")[1];
+				if (helpMeUnderstand) console.log("thisName is "+thisName);
+				thisName=decodeURIComponent(thisName);
+				if (helpMeUnderstand) console.log("after decoding thisName is "+thisName);
+
+				// Extract this message (one message)
+				thisMessage=messagePair.split("=")[1];
+				if (helpMeUnderstand) console.log("thisMessage is "+thisMessage);
+				thisMessage=decodeURIComponent(thisMessage);
+				if (helpMeUnderstand) console.log("after decoding thisMessage is "+thisMessage);
+
+				// Now we add the text for one single message at the top of the table (not the bottom)
+				allChatRoomHTML="<tr><td>" + thisName + "</td><td>" + thisMessage + "</td></tr>\n" + allChatRoomHTML;
+			}
+
+		}  );	
+
+		$("#chatroom_content").html(allChatRoomHTML);
+           }
+       });
+
+    setTimeout(processXML, 1000); // Do it all over again a second later
+}
+
+
+});
+
+</script></head>
+
+
+
+<body>
+    <h2>COMP4021 Chat Room</h2>
+
+<!-- Notice that there is no 'method' in the following form.
+     That's because we use jQuery to handle the sending, not the usual browser process.
+     Also, notice there is no 'submit' button.
+     We use our own button instead to trigger the sending process.
+ -->
+
+    <form id="theForm">
+        <p>Your chat room name: <input type="text" name="chatroomname" id="chatroomname"></p>
+        <p>Message: <input type="text" name="chatroommessage" id="chatroommessage"></p>
+        <p><input type="button" id="submitButton" value="Press here to send"></p>
+    </form>
+
+<!-- All the chatroom content is shown in the following table -->
+
+    <table id="chatroom_content"><tr><td>yoho</td><td>hey</td></tr>
+<tr><td>yoho</td><td>message1</td></tr>
+<tr><td>sda</td><td>sadasd</td></tr>
+<tr><td></td><td></td></tr>
+<tr><td>sadas</td><td>sadsa</td></tr>
+<tr><td>sadas</td><td>sadsa</td></tr>
+<tr><td>sadas</td><td>sadsa</td></tr>
+<tr><td>sadas</td><td>sadsa</td></tr>
+<tr><td>sadsa</td><td>sadas</td></tr>
+<tr><td>sadsa</td><td>sadas</td></tr>
+<tr><td>sadsa</td><td>sadas</td></tr>
+<tr><td>fdfg</td><td>fdg</td></tr>
+<tr><td>tester</td><td>killer</td></tr>
+<tr><td>midterm </td><td>scared </td></tr>
+<tr><td>dfdgggdf</td><td>dogcat</td></tr>
+<tr><td>dfgdf</td><td>dog</td></tr>
+<tr><td>tester</td><td>killer</td></tr>
+<tr><td>Dave</td><td>getting hotter...</td></tr>
+<tr><td>&#20013;&#22269;</td><td>no ff ar</td></tr>
+<tr><td>Mr V</td><td>Anyone playing FF7R?</td></tr>
+<tr><td>COMP Student</td><td>My fav course</td></tr>
+<tr><td>Crazy Student</td><td>I love midterms</td></tr>
+<tr><td>Gibson</td><td>good</td></tr>
+<tr><td>Dave</td><td>how are you?</td></tr>
+</table>
+
+
+
+</body></html>

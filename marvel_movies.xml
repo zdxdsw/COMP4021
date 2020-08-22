@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<movies>
+    <phase number="1">
+        <movie>
+            <title>Iron Man</title>
+            <year>2008</year>
+            <ratings>
+                <imdb>7.9</imdb>
+                <rotten-tomatoes>94%</rotten-tomatoes>
+            </ratings>
+            <description>A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.</description>
+            <director>Jon Favreau</director>
+            <box-office>585.2</box-office>
+            <poster>ironman.png</poster>
+        </movie>
+        <movie>
+            <title>The Incredible Hulk</title>
+            <year>2008</year>
+            <ratings>
+                <imdb>6.8</imdb>
+                <rotten-tomatoes>67%</rotten-tomatoes>
+            </ratings>
+            <description>Scientist Bruce Banner (Edward Norton) desperately seeks a cure for the gamma radiation that contaminated his cells and turned him into The Hulk. Cut off from his true love Betty Ross (Liv Tyler) and forced to hide from his nemesis, Gen. Thunderbolt Ross (William Hurt), Banner soon comes face-to-face with a new threat: a supremely powerful enemy known as The Abomination (Tim Roth).</description>
+            <director>Louis Leterrier</director>
+            <box-office>263.4</box-office>
+            <poster>hulk.png</poster>
+        </movie>
+        <movie>
+            <title>Iron Man 2</title>
+            <year>2010</year>
+            <ratings>
+                <imdb>7</imdb>
+                <rotten-tomatoes>73%</rotten-tomatoes>
+            </ratings>
+            <description>With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and "Rhodey" Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.</description>
+            <director>Jon Favreau</director>
+            <box-office>623.9</box-office>
+            <poster>ironman2.png</poster>
+        </movie>
+        <movie>
+            <title>Thor</title>
+            <year>2011</year>
+            <ratings>
+                <imdb>7</imdb>
+                <rotten-tomatoes>77%</rotten-tomatoes>
+            </ratings>
+            <description>As the son of Odin (Anthony Hopkins), king of the Norse gods, Thor (Chris Hemsworth) will soon inherit the throne of Asgard from his aging father. However, on the day that he is to be crowned, Thor reacts with brutality when the gods' enemies, the Frost Giants, enter the palace in violation of their treaty. As punishment, Odin banishes Thor to Earth. While Loki (Tom Hiddleston), Thor's brother, plots mischief in Asgard, Thor, now stripped of his powers, faces his greatest threat.</description>
+            <director>Kenneth Branagh</director>
+            <box-office>449.3</box-office>
+            <poster>thor.png</poster>
+        </movie>
+        <movie>
+            <title>Captain America: The First Avenger</title>
+            <year>2011</year>
+            <ratings>
+                <imdb>7</imdb>
+                <rotten-tomatoes>77%</rotten-tomatoes>
+            </ratings>
+            <description>It is 1941 and the world is in the throes of war. Steve Rogers (Chris Evans) wants to do his part and join America's armed forces, but the military rejects him because of his small stature. Finally, Steve gets his chance when he is accepted into an experimental program that turns him into a supersoldier called Captain America. Joining forces with Bucky Barnes (Sebastian Stan) and Peggy Carter (Hayley Atwell), Captain America leads the fight against the Nazi-backed HYDRA organization.</description>
+            <director>Joe Johnston</director>
+            <box-office>370.6</box-office>
+            <poster>cap.png</poster>
+        </movie>
+        <movie>
+            <title>Marvel's The Avengers</title>
+            <year>2012</year>
+            <ratings>
+                <imdb>8.1</imdb>
+                <rotten-tomatoes>92%</rotten-tomatoes>
+            </ratings>
+            <description>When Thor's evil brother, Loki (Tom Hiddleston), gains access to the unlimited power of the energy cube called the Tesseract, Nick Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a superhero recruitment effort to defeat the unprecedented threat to Earth. Joining Fury's "dream team" are Iron Man (Robert Downey Jr.), Captain America (Chris Evans), the Hulk (Mark Ruffalo), Thor (Chris Hemsworth), the Black Widow (Scarlett Johansson) and Hawkeye (Jeremy Renner).</description>
+            <director>Joss Whedon</director>
+            <box-office>1519</box-office>
+            <poster>avengers.png</poster>
+        </movie>
+    </phase>
+    <phase number="2">
+        <movie>
+            <title>Iron Man 3</title>
+            <year>2013</year>
+            <ratings>
+                <imdb>7.2</imdb>
+                <rotten-tomatoes>80%</rotten-tomatoes>
+            </ratings>
+            <description>Plagued with worry and insomnia since saving New York from destruction, Tony Stark (Robert Downey Jr.), now, is more dependent on the suits that give him his Iron Man persona -- so much so that every aspect of his life is affected, including his relationship with Pepper (Gwyneth Paltrow). After a malevolent enemy known as the Mandarin (Ben Kingsley) reduces his personal world to rubble, Tony must rely solely on instinct and ingenuity to avenge his losses and protect the people he loves.</description>
+            <director>Shane Black</director>
+            <box-office>1215</box-office>
+            <poster>ironman3.png</poster>
+        </movie>
+        <movie>
+            <title>Thor: The Dark World</title>
+            <year>2013</year>
+            <ratings>
+                <imdb>7</imdb>
+                <rotten-tomatoes>66%</rotten-tomatoes>
+            </ratings>
+            <description>In ancient times, the gods of Asgard fought and won a war against an evil race known as the Dark Elves. The survivors were neutralized, and their ultimate weapon -- the Aether -- was buried in a secret location. Hundreds of years later, Jane Foster (Natalie Portman) finds the Aether and becomes its host, forcing Thor (Chris Hemsworth) to bring her to Asgard before Dark Elf Malekith (Christopher Eccleston) captures her and uses the weapon to destroy the Nine Realms -- including Earth.</description>
+            <director>Alan Taylor</director>
+            <box-office>644.6</box-office>
+            <poster>thor2.png</poster>
+        </movie>
+        <movie>
+            <title>Captain America: The Winter Soldier</title>
+            <year>2014</year>
+            <ratings>
+                <imdb>7.8</imdb>
+                <rotten-tomatoes>89%</rotten-tomatoes>
+            </ratings>
+            <description>After the cataclysmic events in New York with his fellow Avengers, Steve Rogers, aka Captain America (Chris Evans), lives in the nation's capital as he tries to adjust to modern times. An attack on a S.H.I.E.L.D. colleague throws Rogers into a web of intrigue that places the whole world at risk. Joining forces with the Black Widow (Scarlett Johansson) and a new ally, the Falcon, Rogers struggles to expose an ever-widening conspiracy, but he and his team soon come up against an unexpected enemy.</description>
+            <director>Joe Russo, Anthony Russo</director>
+            <box-office>714.3</box-office>
+            <poster>cap2.png</poster>
+        </movie>
+        <movie>
+            <title>Guardians of the Galaxy</title>
+            <year>2014</year>
+            <ratings>
+                <imdb>8.1</imdb>
+                <rotten-tomatoes>76%</rotten-tomatoes>
+            </ratings>
+            <description>Brash space adventurer Peter Quill (Chris Pratt) finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain. To evade Ronan, Quill is forced into an uneasy truce with four disparate misfits: gun-toting Rocket Raccoon, treelike-humanoid Groot, enigmatic Gamora, and vengeance-driven Drax the Destroyer. But when he discovers the orb's true power and the cosmic threat it poses, Quill must rally his ragtag group to save the universe.</description>
+            <director>James Gunn</director>
+            <box-office>773.3</box-office>
+            <poster>gotg.png</poster>
+        </movie>
+        <movie>
+            <title>Avengers: Age of Ultron</title>
+            <year>2015</year>
+            <ratings>
+                <imdb>7.4</imdb>
+                <rotten-tomatoes>75%</rotten-tomatoes>
+            </ratings>
+            <description>When Tony Stark (Robert Downey Jr.) jump-starts a dormant peacekeeping program, things go terribly awry, forcing him, Thor (Chris Hemsworth), the Incredible Hulk (Mark Ruffalo) and the rest of the Avengers to reassemble. As the fate of Earth hangs in the balance, the team is put to the ultimate test as they battle Ultron, a technological terror hell-bent on human extinction. Along the way, they encounter two mysterious and powerful newcomers, Pietro and Wanda Maximoff.</description>
+            <director>Joss Whedon</director>
+            <box-office>1405</box-office>
+            <poster>avengers2.png</poster>
+        </movie>
+        <movie>
+            <title>Ant-man</title>
+            <year>2015</year>
+            <ratings>
+                <imdb>7.3</imdb>
+                <rotten-tomatoes>64%</rotten-tomatoes>
+            </ratings>
+            <description>Forced out of his own company by former protégé Darren Cross, Dr. Hank Pym (Michael Douglas) recruits the talents of Scott Lang (Paul Rudd), a master thief just released from prison. Lang becomes Ant-Man, trained by Pym and armed with a suit that allows him to shrink in size, possess superhuman strength and control an army of ants. The miniature hero must use his new skills to prevent Cross, also known as Yellowjacket, from perfecting the same technology and using it as a weapon for evil.</description>
+            <director>Peyton Reed</director>
+            <box-office>519.3</box-office>
+            <poster>antman.png</poster>
+        </movie>
+    </phase>
+    <phase number="3">
+        <movie>
+            <title>Captain America: Civil War</title>
+            <year>2016</year>
+            <ratings>
+                <imdb>7.8</imdb>
+                <rotten-tomatoes>91%</rotten-tomatoes>
+            </ratings>
+            <description>Political pressure mounts to install a system of accountability when the actions of the Avengers lead to collateral damage. The new status quo deeply divides members of the team. Captain America (Chris Evans) believes superheroes should remain free to defend humanity without government interference. Iron Man (Robert Downey Jr.) sharply disagrees and supports oversight. As the debate escalates into an all-out feud, Black Widow (Scarlett Johansson) and Hawkeye (Jeremy Renner) must pick a side.</description>
+            <director>Joe Russo, Anthony Russo</director>
+            <box-office>1132</box-office>
+            <poster>cap3.png</poster>
+        </movie>
+        <movie>
+            <title>Doctor Strange</title>
+            <year>2016</year>
+            <ratings>
+                <imdb>7.5</imdb>
+                <rotten-tomatoes>89%</rotten-tomatoes>
+            </ratings>
+            <description>Dr. Stephen Strange's (Benedict Cumberbatch) life changes after a car accident robs him of the use of his hands. When traditional medicine fails him, he looks for healing, and hope, in a mysterious enclave. He quickly learns that the enclave is at the front line of a battle against unseen dark forces bent on destroying reality. Before long, Strange is forced to choose between his life of fortune and status or leave it all behind to defend the world as the most powerful sorcerer in existence.</description>
+            <director>Scott Derrickson</director>
+            <box-office>677.7</box-office>
+            <poster>drstrange.png</poster>
+        </movie>
+        <movie>
+            <title>Guardians of the Galaxy Vol. 2</title>
+            <year>2017</year>
+            <ratings>
+                <imdb>7.7</imdb>
+                <rotten-tomatoes>83%</rotten-tomatoes>
+            </ratings>
+            <description>Peter Quill and his fellow Guardians are hired by a powerful alien race, the Sovereign, to protect their precious batteries from invaders. When it is discovered that Rocket has stolen the items they were sent to guard, the Sovereign dispatch their armada to search for vengeance. As the Guardians try to escape, the mystery of Peter's parentage is revealed.</description>
+            <director>James Gunn</director>
+            <box-office>863.8</box-office>
+            <poster>gotg2.png</poster>
+        </movie>
+        <movie>
+            <title>Spider-Man: Homecoming</title>
+            <year>2017</year>
+            <ratings>
+                <imdb>7.5</imdb>
+                <rotten-tomatoes>92%</rotten-tomatoes>
+            </ratings>
+            <description>Thrilled by his experience with the Avengers, young Peter Parker returns home to live with his Aunt May. Under the watchful eye of mentor Tony Stark, Parker starts to embrace his newfound identity as Spider-Man. He also tries to return to his normal daily routine -- distracted by thoughts of proving himself to be more than just a friendly neighborhood superhero. Peter must soon put his powers to the test when the evil Vulture emerges to threaten everything that he holds dear.</description>
+            <director>Jon Watts</director>
+            <box-office>880.2</box-office>
+            <poster>spiderman.png</poster>
+        </movie>
+        <movie>
+            <title>Thor: Ragnarok</title>
+            <year>2017</year>
+            <ratings>
+                <imdb>7.9</imdb>
+                <rotten-tomatoes>92%</rotten-tomatoes>
+            </ratings>
+            <description>Imprisoned on the other side of the universe, the mighty Thor finds himself in a deadly gladiatorial contest that pits him against the Hulk, his former ally and fellow Avenger. Thor's quest for survival leads him in a race against time to prevent the all-powerful Hela from destroying his home world and the Asgardian civilization.</description>
+            <director>Taika Waititi</director>
+            <box-office>854.3</box-office>
+            <poster>thor3.png</poster>
+        </movie>
+        <movie>
+            <title>Black Panther</title>
+            <year>2018</year>
+            <ratings>
+                <imdb>7.8</imdb>
+                <rotten-tomatoes>97%</rotten-tomatoes>
+            </ratings>
+            <description>After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.</description>
+            <director>Ryan Coogler</director>
+            <box-office>1239</box-office>
+            <poster>blackpanther.png</poster>
+        </movie>
+        <movie>
+            <title>Avengers: Infinity War</title>
+            <year>2018</year>
+            <ratings>
+                <imdb>8.5</imdb>
+                <rotten-tomatoes>85%</rotten-tomatoes>
+            </ratings>
+            <description>Having acquired the Power Stone, one of the six Infinity Stones, from the planet Xandar, Thanos and his lieutenants—Ebony Maw, Cull Obsidian, Proxima Midnight, and Corvus Glaive—intercept a spaceship carrying the surviving Asgardians. As they extract the Space Stone from the Tesseract, Thanos subdues Thor, overpowers Hulk, and kills Heimdall and Loki. Before being killed, Heimdall sends the Hulk to Earth using the Bifröst. Thanos departs with his lieutenants and obliterates the ship.</description>
+            <director>Anthony Russo, Joe Russo</director>
+            <box-office>2048</box-office>
+            <poster>avengers-infinity-war.jpg</poster>
+        </movie>
+        <movie>
+            <title>Ant-Man and the Wasp</title>
+            <year>2018</year>
+            <ratings>
+                <imdb>7.1</imdb>
+                <rotten-tomatoes>88%</rotten-tomatoes>
+            </ratings>
+            <description>Two years after Scott Lang was placed on house arrest due to his involvement with the Avengers in violation of the Sokovia Accords, Hank Pym and his daughter Hope van Dyne briefly manage to open a tunnel to the quantum realm. They believe Pym's wife Janet van Dyne might be trapped there after shrinking to sub-atomic levels in 1987. When he had previously visited the quantum realm, Lang had unknowingly become quantumly entangled with Janet, and now he receives an apparent message from her.</description>
+            <director>Peyton Reed</director>
+            <box-office>622</box-office>
+            <poster>amts.jpg</poster>
+        </movie>
+        <movie>
+            <title>Captain Marvel</title>
+            <year>2019</year>
+            <ratings>
+                <imdb>7.1</imdb>
+                <rotten-tomatoes>79%</rotten-tomatoes>
+            </ratings>
+            <description>In 1995, on the Kree Empire's capital planet of Hala, Starforce member Vers suffers from recurring nightmares involving an older woman. Yon-Rogg, her mentor and commander, trains her to control her abilities while the Supreme Intelligence, an artificial intelligence and the ruler of the Kree, urges her to keep her emotions in check.</description>
+            <director>Anna Boden, Ryan Fleck</director>
+            <box-office>550</box-office>
+            <poster>captain-marvel.jpeg</poster>
+        </movie>
+        <movie>
+            <title>Avengers: Endgame</title>
+            <year>2019</year>
+            <ratings>
+                <imdb>8.1</imdb>
+                <rotten-tomatoes>94%</rotten-tomatoes>
+            </ratings>
+            <description>After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.</description>
+            <director>Anthony Russo, Joe Russo</director>
+            <box-office>2800</box-office>
+            <poster>Avengers_Endgame_poster.jpg</poster>
+        </movie>
+        <movie>
+            <title>Spider-Man: Far From Home</title>
+            <year>2019</year>
+            <ratings>
+                <imdb>7.5</imdb>
+                <rotten-tomatoes>91%</rotten-tomatoes>
+            </ratings>
+            <description>Our friendly neighborhood Super Hero decides to join his best friends Ned, MJ, and the rest of the gang on a European vacation. However, Peter's plan to leave super heroics behind for a few weeks are quickly scrapped when he begrudgingly agrees to help Nick Fury uncover the mystery of several elemental creature attacks, creating havoc across the continent.</description>
+            <director>Jon Watts</director>
+            <box-office>180</box-office>
+            <poster>Spider-Man_Far_From_Home_poster.jpg</poster>
+        </movie>
+    </phase>
+</movies>
