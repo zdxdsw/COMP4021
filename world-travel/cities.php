@@ -160,7 +160,7 @@ $status = "";
             animation-name: player-animation;
             animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
-            animation-duration: 0.5s;
+            animation-duration: 2s;
         }
         @keyframes player-animation {
             64% {transform: translateY(0px);}
