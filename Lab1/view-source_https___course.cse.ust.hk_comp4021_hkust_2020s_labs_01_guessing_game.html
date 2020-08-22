@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game!</title>
+    <script>
+    var answer;
+    var last_guess = -1;
+    var default_value;
+    function load() {
+        // Prepare the random number
+        answer = parseInt(Math.random() * 100) + 1; /* generate the random number. random() returns a float number between 0 and 1 (exclude 1). */
+       /* Therefore, parseInt(random) gives an integer between 0 and 99. */
+        console.log(answer);
+    }
+
+    function start() {
+        // Switch the display from the 'title screen' to the 'main screen'
+        document.getElementById('title').style.display = "none";
+        document.getElementById('main').style.display = "block";
+    }
+
+    function guess() {
+        // Find the previous guess and return if
+        // the previous guess is already correct
+        if (last_guess==answer){
+            return false;
+        }
+
+        // Set default_value according to last_guess
+        if (last_guess==-1){
+            default_value = 50;
+        }else{
+            default_value = last_guess;
+        }
+
+        // Ask for the guess from the user
+        var myInput = prompt("Please enter an integer", default_value); /* the second parameter is the default value */
+        console.log(myInput);
+
+
+        // Check the guess with the lab logic
+        //   Case 1: not a number
+        if (isNaN(myInput)){ /* isNaN (is not a number) is a JS built-in function */
+            console.log(false);
+            document.getElementById("hint").innerHTML = "Please input a number";
+            return false; /* return immediately from the function guess()*/
+        }else{console.log(true);}
+
+        //   Case 2: not an integer
+        console.log(typeof(myInput)); /* the value from prompt is by default in string type */
+        if (parseInt(myInput) != parseFloat(myInput)){
+            document.getElementById("hint").innerHTML = "Please input an integer";
+            return false;
+        }
+
+        //   Case 3: not within the valid range
+        myInput = parseInt(myInput)
+        if (myInput<1 || myInput>100){
+            document.getElementById("hint").innerHTML = "Please enter an integer between 1 and 100";
+            return false;
+        }
+
+        last_guess = myInput; // Now the input is valid, store it in last_guess
+        //   Case 4: the guess is too small
+        if(myInput<answer){
+            document.getElementById("hint").innerHTML = "Your number is too small!";
+            document.getElementById("guess").innerHTML = myInput;
+            return false;
+        }
+
+        //   Case 5: the guess is too big
+        if(myInput>answer){
+            document.getElementById("hint").innerHTML = "Your number is too big!";
+            document.getElementById("guess").innerHTML = myInput;
+            return false;
+        }
+        
+        //   Case 6: the guess is correct
+        // The game should over. Even the user click the button again, nothing should happen.
+        if(myInput=answer){
+            document.getElementById("hint").innerHTML = "Your are right!";
+            document.getElementById("guess").innerHTML = myInput;
+            return false;
+        }
+
+        return false;
+    }
+    </script>
+    <style>
+    /* This is the style of the body element */
+    body {
+        font-family: Georgia, serif;
+        background: black url(ust.jpg);
+        background-size: 100% 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Set up the style of the boxes of the two screens */
+    .box{
+        box-sizing: border-box;  
+        border:10px solid black;
+        text-align: center;
+        font-size: 8vh; /* reletive length, can adjust according to the browser size*/
+        width: 90vw; /* relative to 90% of the viewport */
+        height:90vh;
+        margin:5vh 5vw 5vh 5vw;
+        padding-top: 25vh;
+    }
+
+    /* Set up the style for the title screen */
+    #title{
+        color:silver;
+        background: rgba(0,0,0,0.3); /* the fourth parameter indicates transparency */
+        text-transform: uppercase;
+    }
+
+    /* - Set up the style for the p and big */
+    p{margin:0;} /* change spacing between paragraphs */
+    big{font-size:150%;} /* % means relative to the parent element */
+
+    /* - Set up the style for the title and subtitle */
+    #title2{
+        font-size:200%;
+    }
+
+    #subtitle{
+        font-size:40%;
+        margin-left: 50%; /* so that the text will be placed at the right half of the screen */
+        text-align: left;
+    }
+    /* Set up the style for the main screen */
+    #main{
+        background-color: rgba(255,255,255,0.2);
+        display: none; /* hide the second screen from the beginning */
+    }
+    /* - Set up the style for 'button' */
+    a{
+        display: block; /* the coverage area of hyperlink is a box, rather than only the text area */
+        border: 4px solid black;
+        border-radius: 10px; /* the hyperlink area becomes a button */
+        font-size: 50%;
+        color: black;
+        text-decoration: none; /* remove the default underline for hyperlink */
+        width: 40vh; /* both width and height of the button will only depend on the viewport height */
+        height: 8vh;
+        margin: 20px auto 20px auto;
+        line-height: 8vh; /* set line-height equal to the button height, so that the text will be aligned at center vertically */
+        background-color: gray; 
+    }
+    a:hover{
+        background-color: rgba(255,255,255,0.5); /* when the mouse is hovering on the button, its background-color changes to light gray (becomes more transparent) */
+    }
+    /* - Set up the style for hint */
+    #hint{
+        color:blue;
+        font-size: 80%;
+        background: rgba(255,255,255,0.5);
+        width:100vh;
+        height:8vh;
+        margin:10px auto;
+    }
+    </style>
+</head>
+<body onload="load()">
+    <!-- the title screen -->
+    <div class="box" id="title" onclick="start()">
+        <p id="title1">Fantastic</p>
+        <p id="title2">Number</p>
+        <p id="subtitle">that <big>You Need</big><br>
+            to <big>Guess</big></p>
+    </div>
+
+    <!-- the game screen -->
+    <div class="box" id="main" >
+        <p>Your Guess: <span id="guess">-</span></p>
+        <a id="button" href="#" onclick="return guess()">Enter Your Guess</a>
+        <p id="hint">Press the button to start the guess!</p>
+    </div>
+</body>
+</html>

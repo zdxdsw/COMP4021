@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://course.cse.ust.hk/comp4021/hkust/2020s_labs/03/jumping_game.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Jumping Game</title>
+    <script src="./Jumping_Game_files/jquery-3.3.1.min.js.&#19979;&#36733;"></script>
+
+    <!-- This is the font returned from Google font -->
+    <link href="./Jumping_Game_files/css" rel="stylesheet">
+
+    <style>
+    /* Style to make the svg fit in the browser */
+    body { padding: 0; margin: 0; }
+    svg  { width: 100%; height: auto; }
+
+    @keyframes cloud-animation {
+        from {transform: translateX(1000px);}
+        to {transform: translateX(-250px);}
+    }
+
+    #cloud1 {
+        animation-name: cloud-animation;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 6s;
+        animation-delay: -7s;
+    }
+
+    #cloud2 {
+        animation-name: cloud-animation;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 8s;
+        animation-delay: -2s;
+    }
+
+    #cloud3 {
+        animation-name: cloud-animation;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 8s;
+    }
+
+    @keyframes obstacle-animation {
+        from {transform: translateX(1000px);}
+        to {transform: translateX(-250px);}
+    }
+
+    #obstacle {
+        animation-name: obstacle-animation;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-play-state: paused;
+    }
+
+    #obstacle2 {
+        animation-name: obstacle-animation;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 1.5s;
+        animation-play-state: paused;
+    }
+
+    @keyframes player-animation {
+        0% {transform: translateY(0px);}
+        50% {transform: translateY(-75px);}
+        100% {transform: translateY(0px);}
+    }
+
+    #player {
+        animation-name: player-animation;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 0.5s;
+        animation-play-state: paused;
+    }
+    /* The container moves the text to the middle of the screen */
+    #gameover-container {
+        transform: translate(500px,200px);
+    }
+
+    @keyframes gameover-animation{
+        from{transform: rotate(0deg); font-size:1px; opacity:0;}
+        to {transform: rotate(1440deg); font-size:80px; opacity:1;}
+    }
+    #gameover {
+        font-family: Dosis, sans-serif;
+        animation-name: gameover-animation;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: 1;
+        animation-play-state: paused;
+    }
+    </style>
+    <script>
+    // Check whether the game is over if the player is near the obstacle
+    function checkGameover() {
+
+        // You need to keep on checking for the gameover situation here
+        var matPlayer = $("#player").css("transform");
+        var xPlayer = parseFloat(matPlayer.split(", ")[4]);
+        var yPlayer = parseFloat(matPlayer.split(", ")[5]);
+
+        var matObs = $("#obstacle").css("transform");
+        var xObs = parseFloat(matObs.split(", ")[4]);
+        var yObs = parseFloat(matObs.split(", ")[5]);
+
+        var matObs2 = $("#obstacle2").css("transform");
+        var xObs2 = parseFloat(matObs2.split(", ")[4]);
+        var yObs2 = parseFloat(matObs2.split(", ")[5]);
+
+        if((Math.abs(xPlayer-xObs-40) <15 || Math.abs(xPlayer-xObs2-40) <15) && yPlayer > -5){
+            $("#cloud1").css("animation-play-state", "paused");
+            $("#cloud2").css("animation-play-state", "paused");
+            $("#cloud3").css("animation-play-state", "paused");
+            $("#player").css("animation-play-state", "paused");
+            $("#obstacle").css("animation-play-state", "paused");
+            $("#obstacle2").css("animation-play-state", "paused");
+            $("#gameover").css("animation-play-state", "running");
+        } 
+        // Request to check again
+        requestAnimationFrame(checkGameover);
+    }
+
+    // Make a obstacle by starting the obstacle animation
+    function makeObstacle() {
+        var t = Math.random() * 5000;
+        // You need to start the obstacle animation after a random time here
+        setTimeout(function() {
+            $("#obstacle").css("animation-play-state", "running");
+        }, t);
+        console.log(t);
+    }
+
+    function makeObstacle2() {
+        var t = Math.random() * 5000;
+        // You need to start the obstacle animation after a random time here
+        setTimeout(function() {
+            $("#obstacle2").css("animation-play-state", "running");
+        }, t);
+        console.log(t);
+    }
+
+    // Make the player jump by starting the player animation
+    function jump() {
+
+        // You need to start the player jumping animation here
+        $("#player").css("animation-play-state", "running");
+    }
+
+    $(document).ready(function () {
+        // Handle the spacebar key for controlling the player
+        $(document).on("keydown", function(e) {
+            // The player jumps if the spacebar key is down
+            if (e.keyCode == 32)
+                jump();
+        });
+
+
+        // The obstacle finishes 1 iteration of animation...
+        $("#obstacle").on("animationiteration", function() {
+
+            // You need to stop the animation here
+            $("#obstacle").css("animation-play-state", "paused");
+            makeObstacle();
+        });
+
+        $("#obstacle2").on("animationiteration", function() {
+
+            // You need to stop the animation here
+            $("#obstacle2").css("animation-play-state", "paused");
+            makeObstacle2();
+        });
+
+        // The player finishes 1 iteration of animation...
+        $("#player").on("animationiteration", function() {
+
+            // You need to stop the animation here
+            $("#player").css("animation-play-state", "paused");
+        });
+
+        // Start the obstacle animation
+        makeObstacle();
+        makeObstacle2();
+        // Start the game over checking
+        // Before the next frame is printed, the function checkGameover is called.
+        requestAnimationFrame(checkGameover);
+    });
+    </script>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+        <defs>
+            <linearGradient id="svg_2" x2="0" y2="0.58333">
+                <stop offset="0" stop-color="#2d96ff" stop-opacity="0.99609"/>
+                <stop offset="1" stop-color="#56ffff" stop-opacity="0.99609"/>
+            </linearGradient>
+            <linearGradient id="svg_6" x1="0" x2="0" y1="0" y2="0.58333">
+                <stop offset="0" stop-color="#49d31b" stop-opacity="0.98828"/>
+                <stop offset="1" stop-color="#ceff8e" stop-opacity="0.99219"/>
+            </linearGradient>
+            <radialGradient cx="0.81901" cy="0.10677" id="svg_14" r="0.5" spreadMethod="pad">
+                <stop offset="0" stop-color="#e5e5e5" stop-opacity="0.99609"/>
+                <stop offset="1" stop-color="#000000"/>
+            </radialGradient>
+            <linearGradient id="svg_10" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#000000"/>
+                <stop offset="0.46745" stop-color="#5c5c5c" stop-opacity="0.99609"/>
+                <stop offset="1" stop-color="#333333" stop-opacity="0.99609"/>
+            </linearGradient>
+        </defs>
+        <g class="layer">
+            <title>Layer 1</title>
+            <rect fill="url(#svg_2)" height="400" id="svg_1" stroke="#dd4d4d" stroke-width="0" width="1000" x="1" y="0"/>
+            <rect fill="url(#svg_6)" height="100" id="svg_3" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" width="1000" x="0" y="300"/>
+            <circle cx="139.83333" cy="350" fill="url(#svg_14)" id="obstacle" r="50" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+            <circle cx="139.83333" cy="350" fill="url(#svg_14)" id="obstacle2" r="50" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+            <g id="cloud1">
+                <circle cx="125" cy="56" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <circle cx="205" cy="56" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <rect fill="#ffffff" height="40" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" width="80" x="125" y="36"/>
+            </g>
+            <g id="cloud2">
+                <circle cx="125" cy="76" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <circle cx="205" cy="76" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <rect fill="#ffffff" height="40" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" width="80" x="125" y="56"/>
+            </g>
+            <g id="cloud3">
+                <circle cx="125" cy="46" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <circle cx="205" cy="46" fill="#ffffff" r="20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <rect fill="#ffffff" height="40" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" width="80" x="125" y="26"/>
+            </g>
+            <g id="player">
+                <circle cx="72.30499" cy="186.42712" fill="#000000" id="svg_19" r="17.54177" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+                <rect fill="url(#svg_10)" height="54.76141" id="svg_20" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" width="5.85404" x="68.28034" y="205.4415"/>
+                <rect fill="url(#svg_10)" height="52" id="svg_23" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="matrix(0.193167 -0.733597 0.705798 0.200775 -66.3099 309.193)" width="7" x="111.10899" y="163.90995"/>
+                <rect fill="url(#svg_10)" height="52" id="svg_24" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="matrix(0.330727 0.67846 -0.652751 0.343753 243.539 51.3487)" width="7" x="132.87318" y="332.32636"/>
+                <rect fill="url(#svg_10)" height="42.97682" id="svg_26" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="matrix(-0.141806 0.746157 -0.717883 -0.147391 291.27 209.606)" width="7" x="148.22604" y="321.41584"/>
+                <rect fill="url(#svg_10)" height="46.9753" id="svg_27" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="matrix(0.731475 0.0210034 -0.0202075 0.760285 24.2359 27.7223)" width="7" x="116.81213" y="309.85409"/>
+                <rect fill="url(#svg_10)" height="7" id="svg_28" stroke="#dd4d4d" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="matrix(0.727974 -0.0772087 0.0742831 0.756646 4.17359 44.6419)" width="133" x="0.8979" y="233.48445"/>
+            </g>
+        </g>
+        <!-- The game over text -->
+        <g id="gameover-container">
+            <text id="gameover" x="0" y="0" fill="red" font-size="80px" text-anchor="middle">Game Over</text>
+        </g>
+    </svg>
+    
+
+</body></html>

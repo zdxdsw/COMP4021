@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hammer Game!</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+    var timeRemaining = 3;          // Amount of time remaining for the countDown
+
+    var timeToShowMonster = 2000;   // Amount of time to show the monster
+    var timeToHideMonster = 2000;   // Amount of time to hide the monster
+
+    var hideMonsterTimeout;         // Timeout id for hiding the monster
+
+    var life = 3;                   // The player's life
+
+    function hideMonster() {
+        // Change the life and the colour of the holes
+        life = life - 1;
+        if (life==2) {$(".hole").css("border-color", "yellow");}
+        if (life==1) {$(".hole").css("border-color", "red");}
+        // If the game is over show the game over screen
+        if (life==0) {
+            $("#gameOver").fadeIn("slow", function(){});
+            return;
+        }
+        // Hide the monster
+        $("#monster").hide();
+
+        // Show the monster later again
+        setTimeout(showMonster, timeToShowMonster);
+    }
+
+    function showMonster() {
+        // Find the target div randomly and move the monster
+        // to that div
+        var location = parseInt(Math.random() * 9);
+
+        var target_div = $(".hole").eq(location);
+        $("#monster").appendTo(target_div);
+        // Show the monster
+        $("#monster").show();
+        // Hide the monster later
+        hideMonsterTimeout = setTimeout(hideMonster, timeToHideMonster);
+    }
+
+    function startGame() {
+        // Hide the countDown timer
+        $("#countDown").fadeOut("slow", function(){});
+        // Show the monster the first time
+        setTimeout(showMonster, timeToShowMonster);
+        // Set up the click handler of the monster
+        $("#monster").on("click", function(){
+        // - Clear the previous timeout
+            clearTimeout(hideMonsterTimeout);
+        // - Hide the monster
+            $("#monster").hide();
+        // - Adjust the monster time
+            timeToHideMonster = timeToHideMonster-100;
+            timeToShowMonster = timeToShowMonster-100;
+        // - Show the monster later again
+            setTimeout(showMonster, timeToShowMonster);
+        });
+    }
+
+    function countDown() {
+        // Decrease the remaining time
+        timeRemaining = timeRemaining - 1;
+        // Continue the countDown if there is still time;
+        if (timeRemaining>0){
+            document.getElementById("countDown").textContent = timeRemaining;
+            setTimeout(countDown, 1000);
+        }
+        // otherwise, start the game when the time is up
+        else {
+            document.getElementById("countDown").textContent = "Start"
+            startGame();}
+    }
+
+    $(document).ready(function() {
+        // Start the countDown screen
+        setTimeout(countDown, 1000); // when the document is ready, start the count down function
+    });
+    </script>
+
+    <!-- This is the font returned from Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <style>
+    /* This is the style of the body element */
+    body {
+        font-family: 'Gloria Hallelujah', cursive;
+        margin: 0;
+        padding: 0;
+        background: white url(clown.png);
+    }
+
+    /* Set the common style for the countDown and gameOver divs */
+    #countDown, #gameOver {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        text-align: center;
+        font-size: 20vh;
+        line-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* - Set the properties for the countDown div */
+    #countDown {
+        color: orange;
+    }
+
+    /* - Set the properties for the gameOver div */
+    #gameOver {
+        color: maroon;
+        display: none;
+        font-size: 12vw;
+    }
+
+    /* Set the style of the game area */
+    #game-area {
+        width: 90vmin;
+        height: 90vmin;
+        margin: 5vmin auto;
+    }
+
+    /* - Set the style of the holes */
+    .hole {
+        display: block;
+        float: left;
+        width: 26vmin; /* vmin means min{vh, vw}*/
+        height: 26vmin;
+        background-color: black;
+        border: 1vmin solid green;
+        margin: 1vmin;
+    }
+
+    /* - Set the style of the monster image */
+    #monster {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <!-- This div contains all holes -->
+    <div id="game-area">
+        <div class="hole">
+            <!-- This is the monster -->
+            <img id="monster" src="nomore.png" alt="Nomore monster">
+        </div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+    </div>
+
+    <!-- The countDown screen -->
+    <div id="countDown">3</div>
+
+    <!-- The gameOver screen -->
+    <div id="gameOver">Game Over</div>
+</body>
+</html>
